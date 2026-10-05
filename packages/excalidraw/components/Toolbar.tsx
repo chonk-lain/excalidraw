@@ -5,6 +5,7 @@ import { KEYS } from "@excalidraw/common";
 
 import { useTunnels } from "../context/tunnels";
 import { t } from "../i18n";
+import { getShortcutKey } from "../shortcut";
 
 import { useEditorInterface, useStylesPanelMode } from "./App";
 import { HintViewer } from "./HintViewer";
@@ -23,6 +24,7 @@ import {
   bucketFillIcon,
   MagicIcon,
   mermaidLogoIcon,
+  tableIcon,
   DotsIcon,
 } from "./icons";
 import {
@@ -202,6 +204,14 @@ const ExtraToolsDropdown = ({
           data-testid="toolbar-embeddable"
         >
           {t("toolBar.mermaidToExcalidraw")}
+        </DropdownMenu.Item>
+        <DropdownMenu.Item
+          onSelect={() => app.setOpenDialog({ name: "insertTable" })}
+          icon={tableIcon}
+          data-testid="toolbar-insert-table"
+          shortcut={getShortcutKey("Alt+Shift+T")}
+        >
+          {t("toolBar.insertTable")}
         </DropdownMenu.Item>
         {app.props.aiEnabled !== false && app.plugins.diagramToCode && (
           <DropdownMenu.Item

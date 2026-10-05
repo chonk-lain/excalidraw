@@ -347,7 +347,20 @@
     "hand": "Hand (panning tool)",
     "extraTools": "More tools",
     "mermaidToExcalidraw": "Mermaid to Excalidraw",
+    "insertTable": "Insert table",
     "convertElementType": "Toggle shape type"
+  },
+  "insertTableDialog": {
+    "title": "Insert table",
+    "rows": "Rows",
+    "columns": "Columns",
+    "width": "Table width",
+    "height": "Table height",
+    "cellSpacing": "Cell spacing",
+    "cornerRadius": "Corner radius",
+    "allowResize": "Allow moving and resizing",
+    "maxCells": "Up to {{max}} rows and columns.",
+    "insert": "Insert"
   },
   "bucketfill": {
     "noRegion": "Couldn't find an enclosed region to fill here.",

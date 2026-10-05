@@ -304,6 +304,12 @@ export const hasBoundTextElement = <T extends ExcalidrawElement>(
   );
 };
 
+/** marks rectangles created by the "Insert table" dialog */
+export const TABLE_CELL_CUSTOM_DATA_KEY = "excalidrawTable";
+
+export const isTableCellElement = (element: ExcalidrawElement | null) =>
+  !!element?.customData?.[TABLE_CELL_CUSTOM_DATA_KEY];
+
 export const isBoundToContainer = <T extends ExcalidrawElement>(
   element: T | null,
 ): element is T & ExcalidrawTextElementWithContainer => {

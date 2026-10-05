@@ -59,6 +59,7 @@ import {
   isImageElement,
   isLinearElement,
   isStickyNoteElement,
+  isTableCellElement,
   isTextElement,
 } from "./typeChecks";
 
@@ -1367,13 +1368,20 @@ export const resizeMultipleElements = (
       ? [midX, midY]
       : anchorsMap[handleDirection];
 
+    // tables are grouped, but their cells should stretch freely like a
+    // single shape (text bound to cells keeps its font size)
+    const isTableCellOrItsText = (element: NonDeletedExcalidrawElement) =>
+      isTableCellElement(element) ||
+      (isBoundToContainer(element) &&
+        isTableCellElement(elementsMap.get(element.containerId) ?? null));
+
     const keepAspectRatio =
       shouldMaintainAspectRatio ||
       targetElements.some(
         (item) =>
           item.latest.angle !== 0 ||
-          isTextElement(item.latest) ||
-          isInGroup(item.latest),
+          ((isTextElement(item.latest) || isInGroup(item.latest)) &&
+            !isTableCellOrItsText(item.latest)),
       );
 
     if (keepAspectRatio) {

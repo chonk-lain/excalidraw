@@ -49,6 +49,7 @@ import {
   bucketFillIcon,
   ExportImageIcon,
   mermaidLogoIcon,
+  tableIcon,
   brainIconThin,
   LibraryIcon,
   historyCommandIcon,
@@ -588,6 +589,19 @@ function CommandPaletteInner({
                 name: "ttd",
                 tab: "mermaid",
               },
+            }));
+          },
+        },
+        {
+          label: `${t("toolBar.insertTable")}...`,
+          category: DEFAULT_CATEGORIES.tools,
+          icon: tableIcon,
+          shortcut: getShortcutKey("Alt+Shift+T"),
+          viewMode: false,
+          perform: () => {
+            setAppState((state) => ({
+              ...state,
+              openDialog: { name: "insertTable" },
             }));
           },
         },

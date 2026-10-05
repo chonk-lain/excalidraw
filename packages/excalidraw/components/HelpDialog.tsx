@@ -404,6 +404,10 @@ export const HelpDialog = ({ onClose }: { onClose?: () => void }) => {
               />
             )}
             <Shortcut
+              label={t("toolBar.insertTable")}
+              shortcuts={[getShortcutKey("Alt+Shift+T")]}
+            />
+            <Shortcut
               label={t("labels.copyStyles")}
               shortcuts={[getShortcutKey("CtrlOrCmd+Alt+C")]}
             />

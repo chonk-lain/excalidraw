@@ -5242,6 +5242,16 @@ class App extends React.Component<AppProps, AppState> {
         event.preventDefault();
         this.setState({ openDialog: { name: "imageExport" } });
         return;
+      } else if (
+        event.code === CODES.T &&
+        event.altKey &&
+        event.shiftKey &&
+        !event[KEYS.CTRL_OR_CMD] &&
+        !this.state.viewModeEnabled
+      ) {
+        event.preventDefault();
+        this.setState({ openDialog: { name: "insertTable" } });
+        return;
       }
 
       if (this.maybeHandlePageScrollKeyDown(event)) {
